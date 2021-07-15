@@ -15,40 +15,36 @@ export default class Vehicle {
         this.color = "#ffffff"
     }
 
+
     update(){
         this.velocity.add(this.acceleration);
+        // console.log('vehicle vel:', this.velocity)
         this.position.add(this.velocity);
         this.acceleration.set(0, 0);
     }
 
     applyForce(force){
         this.acceleration.add(force);
+        //console.log('force', force)
+        //console.log('apply force: ', this.acceleration)
     }
 
     // steering_force = desired_velocity - velocity
     seek(target) {
         let desiredVelocity = Vector.subtract(target.position, this.position);
+        console.log(target.position, this.position)
         desiredVelocity.setMagnitude(this.maxSpeed);
         let steering = Vector.subtract(desiredVelocity, this.velocity);
         this.applyForce(steering);
+        
     }
 
-
-
-    draw(x, y) {
-        this.position.x = x;
-        this.position.y = y;
-        
-        if (Canvas.canvas != null) {
-            Canvas.context.beginPath();
-            Canvas.context.arc(this.position.x, this.position.y, this.size, 0, 2 * Math.PI);
-            Canvas.context.stroke();
-            Canvas.context.fillStyle = this.color;
-            Canvas.context.fill(); // Note: When you call fill(), any open shapes are closed automatically, so you don't have to call closePath(). This is not the case when you call stroke().
-        }
-        else{
-            console.log("Error Drawing Vehicle")
-        }
+    draw() {
+        Canvas.context.beginPath();
+        Canvas.context.arc(this.position.x, this.position.y, this.size, 0, 2 * Math.PI);
+        Canvas.context.stroke();
+        Canvas.context.fillStyle = this.color;
+        Canvas.context.fill(); // Note: When you call fill(), any open shapes are closed automatically, so you don't have to call closePath(). This is not the case when you call stroke().
     }
 
 }

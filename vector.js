@@ -29,12 +29,14 @@ export default class Vector{
 
 
     add(vector){
-        return new Vector(this.x + vector.x, this.y + vector.y);
+        this.x += vector.x;
+        this.y += vector.y;
     }
 
 
     subtract(vector){
-        return new Vector(this.x - vector.x, this.y - vector.y);
+        this.x -= vector.x;
+        this.y -= vector.y;
     }
 
     static subtract(vector1, vector2){

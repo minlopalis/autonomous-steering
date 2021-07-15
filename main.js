@@ -16,18 +16,16 @@ startAnimation()
 function startAnimation() {
     Canvas.context.clearRect(0,0, Canvas.width, Canvas.height);
     Canvas.setBackgroundColor(Canvas.backgroundColor);
-    boid.draw(boid.position.x, boid.position.y);
+    boid.draw();
     target.draw(Canvas.mouseX, Canvas.mouseY);
-    console.log(target.position.magnitude())
-    
+
     boid.seek(target);
-    console.log('target = ', target.position)
+    //console.log(target)
+    // console.log('target = ', target.position)
     boid.update();
+    // console.log('vel = ', boid.velocity)
+    // console.log('acc = ', boid.acceleration)
+    // console.log('pos = ', boid.position)
 
     requestAnimationFrame(startAnimation);
-}
-
-
-function moveToTarget(){
-
 }
