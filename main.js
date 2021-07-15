@@ -6,10 +6,28 @@ import Target from "./target.js";
 
 
 Canvas.drawCanvas();
+const boid = new Vehicle();
+const target = new Target();
 
-const boid = new Vehicle(100,200);
-boid.draw();
 
-const target = new Target(300,300);
-target.draw();
+startAnimation()
 
+
+function startAnimation() {
+    Canvas.context.clearRect(0,0, Canvas.width, Canvas.height);
+    Canvas.setBackgroundColor(Canvas.backgroundColor);
+    boid.draw(boid.position.x, boid.position.y);
+    target.draw(Canvas.mouseX, Canvas.mouseY);
+    console.log(target.position.magnitude())
+    
+    boid.seek(target);
+    console.log('target = ', target.position)
+    boid.update();
+
+    requestAnimationFrame(startAnimation);
+}
+
+
+function moveToTarget(){
+
+}

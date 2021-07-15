@@ -8,8 +8,8 @@ export default class Canvas{
     static border = "solid 3px #3E7AB9"
     static width = 500;
     static height = 500;
-    static mouseX = 0;
-    static mouseY = 0;
+    static mouseX = null;
+    static mouseY = null;
 
 
     static drawCanvas(){
@@ -38,12 +38,11 @@ export default class Canvas{
         Canvas.canvas.style.border = border;
     }
 
+
     static resize(){
         Canvas.canvas.width = Canvas.width;
         Canvas.canvas.height = Canvas.height;
-        console.log("Resized Canvas to ", Canvas.width, Canvas.height)
     }
-
 
 
     static addEventListeners(){
@@ -53,7 +52,7 @@ export default class Canvas{
             const cRect = Canvas.canvas.getBoundingClientRect();
             Canvas.mouseX = Math.round(e.clientX - cRect.left);
             Canvas.mouseY = Math.round(e.clientY - cRect.top);
-            console.log(Canvas.mouseX, Canvas.mouseY)
+            //console.log(Canvas.mouseX, Canvas.mouseY)
         });
     }
 
