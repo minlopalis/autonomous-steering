@@ -1,0 +1,12 @@
+{
+  "name": "autonomous-steering",
+  "version": "1.0.0",
+  "description": "Autonomous Steering",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Daniel Tibbotts",
+  "license": "ISC",
+  "type": "module"
+}
