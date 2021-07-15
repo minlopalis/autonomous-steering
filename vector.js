@@ -27,16 +27,25 @@ export default class Vector{
         this.y = this.y * newMagnitude / this.magnitude();
     }
 
-
+    
+    //TODO: Problem seems to lie in the Add Function
     add(vector){
-        this.x += vector.x;
-        this.y += vector.y;
+        console.log('addition vector: ', vector)
+        console.log('This.X: ', this.x)
+        console.log('Vector.X: ', vector.x)
+        console.log('X Calculation: ', this.x + vector.x)
+        this.x = this.x + vector.x;
+        console.log('X: ', this.x)
+        // this.y += vector.y;
+        //console.log('Y: ', this.y)
+        return new Vector(this.x, this.y)
     }
 
 
     subtract(vector){
         this.x -= vector.x;
         this.y -= vector.y;
+        return new Vector(this.x, this.y)
     }
 
     static subtract(vector1, vector2){

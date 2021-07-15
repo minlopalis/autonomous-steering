@@ -9,6 +9,10 @@ Canvas.drawCanvas();
 const boid = new Vehicle();
 const target = new Target();
 
+// let v1 = new Vector(10, 20)
+// let v2 = new Vector(30, 30)
+
+// console.log(v1.subtract(v2))
 
 startAnimation()
 
@@ -19,13 +23,11 @@ function startAnimation() {
     boid.draw();
     target.draw(Canvas.mouseX, Canvas.mouseY);
 
+    console.log('Boid Initial Position:', boid.position)
     boid.seek(target);
-    //console.log(target)
-    // console.log('target = ', target.position)
-    boid.update();
-    // console.log('vel = ', boid.velocity)
-    // console.log('acc = ', boid.acceleration)
-    // console.log('pos = ', boid.position)
+    //boid.update();
+
+    console.log('Boid Position:', boid.position)
 
     requestAnimationFrame(startAnimation);
 }
