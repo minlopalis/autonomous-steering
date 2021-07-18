@@ -4,7 +4,7 @@ import Vector from "./vector.js";
 export default class Target{
     constructor(){
         this.position = new Vector();
-        this.color = '#ff0000';
+        this.color = '#00ff00';
         this.size = 10;
     }
 
