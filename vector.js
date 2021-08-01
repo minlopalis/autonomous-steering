@@ -30,6 +30,14 @@ export default class Vector{
         return new Vector(this.x, this.y);
     }
 
+
+    limitMagnitude(maxMagnitude){
+        if(this.magnitude() > maxMagnitude){
+            this.setMagnitude(maxMagnitude)
+        }
+        return this.magnitude();
+    }
+
     
     add(vector){
         this.x += vector.x;
@@ -47,4 +55,7 @@ export default class Vector{
     static subtract(vector1, vector2){
         return new Vector(vector1.x - vector2.x, vector1.y - vector2.y);
     }
+
+
+
 }

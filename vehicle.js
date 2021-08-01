@@ -7,8 +7,8 @@ export default class Vehicle {
         this.velocity = new Vector();
         this.acceleration = new Vector();
         
-        this.maxForce = 0.01; // scalar, (of a quantity) having only magnitude, not direction.
-        this.maxSpeed = 3; // scalar, (of a quantity) having only magnitude, not direction.
+        this.maxForce = 0.1; // scalar, (of a quantity) having only magnitude, not direction.
+        this.maxSpeed = 4; // scalar, (of a quantity) having only magnitude, not direction.
         this.orientation = null; // N basis vectors
 
         this.size = 20;
@@ -30,6 +30,8 @@ export default class Vehicle {
         let force = Vector.subtract(target.position, this.position);
         force.setMagnitude(this.maxSpeed);
         force.subtract(this.velocity)
+        force.limitMagnitude(this.maxForce)
+        console.log(force)
         this.applyForce(force)
     }
 
