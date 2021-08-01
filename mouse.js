@@ -1,8 +1,8 @@
 import Vector from "./vector.js"
 
 export default class Mouse {
-    static x;
-    static y;
+    static x = 0;
+    static y = 0;
 
     static setMousePosition(e) {
       Mouse.x = e.clientX;

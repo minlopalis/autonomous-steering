@@ -8,8 +8,8 @@ export default class Canvas{
     static border = "solid 3px #3E7AB9"
     static width = 500;
     static height = 500;
-    static mouseX = null;
-    static mouseY = null;
+    static mouseX = Canvas.width / 2;
+    static mouseY = Canvas.height / 2;
 
 
     static drawCanvas(){
@@ -52,7 +52,6 @@ export default class Canvas{
             const cRect = Canvas.canvas.getBoundingClientRect();
             Canvas.mouseX = Math.round(e.clientX - cRect.left);
             Canvas.mouseY = Math.round(e.clientY - cRect.top);
-            //console.log(Canvas.mouseX, Canvas.mouseY)
         });
     }
 
